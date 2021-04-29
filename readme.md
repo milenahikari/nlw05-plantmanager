@@ -51,11 +51,9 @@ Desenvolvemos a estrutura base da aplicação utilizando:
 ## 📱 Preview do projeto
 
 <div>
-  <img style="margin: 5px" alt="Tela splash" src="https://imgur.com/95AXWzw.png" width="200">
+  <img style="margin: 5px" alt="Tela splash" src="https://imgur.com/5FNNitu.png" width="200">
 
-  <img style="margin: 5px" alt="Tela bem vindo" src="https://i.imgur.com/AKAFko9.png" width="200">
-
-  <img style="margin: 5px" alt="Tela confirmar nome" src="https://imgur.com/7eLFSkN.png" width="200">
+  <img style="margin: 5px" alt="Tela bem vindo" src="https://imgur.com/XgNyJiB.png" width="200">
 
   <img style="margin: 5px" alt="Tela escolha uma planta" src="https://imgur.com/DQQgLjk.png" width="200">
 
