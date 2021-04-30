@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import api from '../services/api';
 
 import { Header } from '../components/Header';
 import { EnvironmentButton } from '../components/EnvironmentButton';
@@ -7,7 +8,30 @@ import { EnvironmentButton } from '../components/EnvironmentButton';
 import colors from '../../styles/colors';
 import fonts from '../../styles/fonts';
 
+interface EnvironmentProps {
+  key: string;
+  title: string;
+}
+
 export function PlantSelect() {
+  const [environments, setEnvironments] = useState<EnvironmentProps[]>();
+
+  useEffect(() => {
+    async function fetchEnvironment() {
+      const { data } = await api.get('plants_environments');
+      console.log(data);
+      setEnvironments([
+        {
+          key: 'all',
+          title: 'Todos',
+        },
+        ...data
+      ]);
+    }
+
+    fetchEnvironment();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,9 +43,12 @@ export function PlantSelect() {
 
       <View>
         <FlatList
-          data={[1, 2, 3, 4, 5]}
+          data={environments}
           renderItem={({ item }) => (
-            <EnvironmentButton title="Cozinha" active />
+            <EnvironmentButton
+              key={item.key}
+              title={item.title}
+            />
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
